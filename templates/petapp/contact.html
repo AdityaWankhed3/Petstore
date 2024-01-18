@@ -1,0 +1,133 @@
+{% extends "petapp/base.html" %} {% load static %} {% block login %} {% endblock login %} {% block logout %} {% endblock logout %}
+
+<nav class="navbar bg-body-tertiary ">
+    <div class="container-fluid ">
+        {% comment %} <span class="navbar-brand mb-0 h1 text-center">Contact Us</span> {% endcomment %}
+        <h1 class="text-center">Contact Us</h1>
+    </div>
+</nav>
+
+
+{% block content %} {% comment %}
+<div class="col-md-4"></div> {% endcomment %} {% endblock content %} {% block body %}
+
+<div class="card bg-body-secondary p-5">
+    {% for message in messages %}
+    <!--=========  Alert message from bootstrap  ========== -->
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+
+    {% endfor %}
+    <div class="card bg-body-secondary p-5">
+        {% for message in messages %}
+        <!--=========  Alert message from bootstrap  ========== -->
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+
+        {% endfor %} {% comment %}
+        <div class="col-md-4"></div> {% endcomment %}
+        <div class="">
+            <form action="/contact/" method="POST">
+                {% csrf_token %}
+                <h1 class="text-dark fs-2">Contact us</h1>
+                <label for="name" class="p-2">Name</label>
+                <div class="form-group">
+                    <input type="text" class="form-control p-2" name="name" id="name" required />
+                </div>
+                <label for="email">Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control p-2" name="email" id="email" required />
+                </div>
+                <label for="description">Description</label>
+                <div class="form-group">
+                    <input type="text" class="form-control p-2" name="description" id="description" required />
+                </div>
+                <label for="phone">Phone Number</label>
+                <div class="form-group">
+                    <input type="number" class="form-control p-2" name="phone_number" id="phone_number" required />
+                </div>
+                <button type="submit" class="btn btn-info"> Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>PetStore</h3>
+                    <p>
+                        BTM STAGE 1 <br> @nd floor<br> Bangalore <br><br>
+                        <strong>Phone:</strong> +91 9921049172<br>
+                        <strong>Email:</strong> adityawankhede786@gmail.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Free check up for pets</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Grooming of pets</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home delivery of pet products</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Coupons</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Burial care</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Join Our Protest</h4>
+                    <p>Lets save our sad ones and provide them a home and give them shelter, be a part of donator.</p>
+                    <form action="" method="post">
+                        <input type="type" name="type"><input type="submit" value="Donate">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+        <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">
+                &copy; Copyright <strong><span>PetStore</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
+                Designed by <a href="https://bootstrapmade.com/">Aditya Wankhede</a>
+            </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            <a href="https://twitter.com/addywankhede" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/aa000y/" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/addy_wankhede/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://github.com/AdityaWankhed3" class="google-plus"><i class="bx bxl-github"></i></a>
+            <a href="https://www.linkedin.com/in/aditya-wankhede-a2b99a190/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+{% endblock body %}
